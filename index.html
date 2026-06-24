@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELYA LABS - Real Time Robotic Teleoperation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @font-face {
+            font-family: 'Eina';
+            src: url('https://framerusercontent.com/assets/r2tj1pD9b2S1hgQsz6QeRjN6ZXE.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Подключаем начертание SemiBold (Полужирный) */
+        @font-face {
+            font-family: 'Eina';
+            src: url('https://framerusercontent.com/assets/m2sOnRhxGd7N1y798WSAynSxg.woff2') format('woff2');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Подключаем начертание Bold (Жирный) */
+        @font-face {
+            font-family: 'Eina';
+            src: url('https://framerusercontent.com/assets/aEZpo7WWxzF2oEf6lxnwVQ1g.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            /* Применяем шрифт Eina ко всему сайту */
+            font-family: 'Eina', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Стили для бесконечной анимации логотипов */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: scroll 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <header class="absolute top-0 w-full flex justify-between items-start px-8 md:px-16 py-8 z-50">
+        <a href="#">
+            <img src="https://framerusercontent.com/images/Etsi3yrTtXb9MGmBhTSMe0fpjI.png" alt="FELYA LABS" class="h-20 md:h-[170px] object-contain">
+        </a>
+        <nav class="hidden md:flex gap-8 text-sm text-gray-400 font-medium tracking-wide mt-4">
+            <a href="#" class="hover:text-white transition-colors duration-300">PATON I</a>
+            <a href="#about" class="hover:text-white transition-colors duration-300">About</a>
+            <a href="#gallery" class="hover:text-white transition-colors duration-300">Gallery</a>
+            <a href="#contact" class="hover:text-white transition-colors duration-300">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 2. СЕКЦИЯ: pt-[220px] вместо pt-32 опускает весь контент ниже, чтобы дать место гигантскому логотипу -->
+    <section class="relative flex flex-col md:flex-row min-h-screen px-8 md:px-16 pt-[220px] pb-20 items-center justify-between">
+        
+        <!-- 3. ЛЕВАЯ КОЛОНКА: добавлен класс md:ml-12 (margin-left), чтобы сдвинуть текст правее, под букву L -->
+        <div class="w-full md:w-[39%] z-10 flex flex-col justify-center h-full py-10 space-y-16 mt-10 md:mt-0 md:ml-12 -translate-y-[90px]">
+            
+            <div class="space-y-6 max-w-full">
+                <h3 class="text-gray-300 text-3xl font-semibold tracking-wide">Interface of Craft:</h3>
+                <p class="text-gray-400 text-xl font-semibold leading-relaxed">
+                    With our Glove, people can perform manual tasks remotely by controlling robotic hands with natural movement and tactile feedback.
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="w-max text-center">
+                <h1 class="text-[3.2rem] md:text-[3rem] leading-none font-bold tracking-tight text-white">Stay in the loop.</h1>
+                <h1 class="text-[3.2rem] md:text-[3rem] leading-none font-bold tracking-tight text-[#444444]">Sign up now.</h1>
+                </div>
+
+                <form "https://seu2.cleverreach.com/f/452581-429094/wcs/" method="POST" class="flex flex-col gap-3 max-w-[350px] pt-4">
+                    <input type="email" name="email" required placeholder="Email" class="bg-[#141414] text-white px-5 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder-gray-600 border border-[#222]">
+                    <button type="submit" class="bg-white text-black font-semibold text-lg px-5 py-4 rounded-xl hover:bg-gray-200 transition-colors">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="w-full md:w-[60%] h-[50vh] md:h-screen relative mt-8 md:mt-0 flex items-center justify-center">
+            <img src="Felya Glove.png" alt="Robotic Hand Exoskeleton" 
+             class="h-full w-auto object-contain rotate-[-25deg] scale-125 -translate-y-[140px]">
+        </div>
+    </section>
+
+    <section class="px-8 md:px-16 pb-28 relative z-10 -mt-[150px]">
+        <div class="bg-[#111111] rounded-[2rem] py-6 px-8 flex items-center overflow-hidden border border-[#222]">
+            <span class="text-gray-400 text-sm whitespace-nowrap font-medium mr-12 bg-[#111111] z-20 pr-4">Supported by</span>
+            
+            <div class="overflow-hidden w-full relative">
+                <div class="animate-marquee gap-16 items-center">
+                    <img src="https://framerusercontent.com/images/AZ9aQXGeTBwdemgerKtkmLClCS4.png" alt="igus" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="innohub.png" alt="Innovation Hub" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/pYgBpFarUeFpVERgdmbNeqITq04.png" alt="KNIPEX" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/J98ZqXWtOZhhrvSgVuUvsT7m0eI.png" alt="Solingen" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/EFjPlwCXIIn9mkrzVHjmj4wkm44.png" alt="Wurth" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/021KFd2k410tLZl5G6uZLngrj8.png" alt="Fidlock" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+
+                    <img src="https://framerusercontent.com/images/AZ9aQXGeTBwdemgerKtkmLClCS4.png" alt="igus" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="innohub.png" alt="Innovation Hub" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/pYgBpFarUeFpVERgdmbNeqITq04.png" alt="KNIPEX" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/J98ZqXWtOZhhrvSgVuUvsT7m0eI.png" alt="Solingen" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/EFjPlwCXIIn9mkrzVHjmj4wkm44.png" alt="Wurth" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/021KFd2k410tLZl5G6uZLngrj8.png" alt="Fidlock" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    
+                    <img src="https://framerusercontent.com/images/AZ9aQXGeTBwdemgerKtkmLClCS4.png" alt="igus" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="innohub.png" alt="Innovation Hub" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/pYgBpFarUeFpVERgdmbNeqITq04.png" alt="KNIPEX" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/J98ZqXWtOZhhrvSgVuUvsT7m0eI.png" alt="Solingen" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/EFjPlwCXIIn9mkrzVHjmj4wkm44.png" alt="Wurth" class="h-7 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="https://framerusercontent.com/images/021KFd2k410tLZl5G6uZLngrj8.png" alt="Fidlock" class="h-6 object-contain opacity-60 filter grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="px-8 md:px-16 py-16 flex flex-col items-center -mt-[50px]">
+        <div class="text-center mb-16 space-y-4">
+            <h2 class="text-white text-2xl md:text-2xl font-bold tracking-tight">
+                Born in the Lab. Engineered for the Future.
+            </h2>
+            <div class="inline-block bg-[#111111] border border-[#222] rounded-full px-5 py-2 text-gray-400 text-sm font-medium">
+                Pre-seed venture | Germany
+            </div>
+        </div>
+          
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-[1200px] w-full items-center">
+            <div class="w-full">
+                <img src="https://framerusercontent.com/images/7o8zf8iGo6SNYtGtL22JymtMo.jpg" alt="Felya Labs Team" class="rounded-[2rem] w-full h-auto object-cover border border-[#111]">
+            </div>
+            <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                <p>
+                    We are a team of students from the <strong class="text-white font-semibold">Code & Context</strong> program at the <strong class="text-white font-semibold">Cologne University of Applied Sciences (TH Köln)</strong>.
+                </p>
+                <p>
+                    What started as an ambitious academic challenge has outgrown the classroom. Today, we are taking FELYA LABS forward as an independent pre-seed venture. Driven by a fusion of human-centered design, software development and advanced robotics, our goal is to transition this project into a full-scale tech startup.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="px-8 md:px-16 py-20 flex flex-col items-center">
+    <div class="bg-[#111111] border border-[#222] rounded-full px-6 py-2 text-gray-300 text-sm mb-12 font-medium">
+        Prototyping
+    </div>
+    
+    <div class="relative w-full max-w-[1100px] mx-auto group translate-x-[20px]">
+        
+        <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-[#111111]/80 hover:bg-white hover:text-black border border-[#222] text-white p-4 rounded-full z-10 transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        
+        <div class="overflow-hidden rounded-xl bg-transparent">
+            <div id="carouselTrack" class="flex transition-transform duration-500 ease-in-out">
+                
+                <img src="1 PATON_x_OpenArm 6.png" alt="Prototyping 1" class="w-full shrink-0  h-auto object-contain object-center">
+                
+                <img src="2 Remote_Humanoid.jpg" alt="Prototyping 2" class="w-full shrink-0 h-auto object-contain object-center">
+
+                <img src="3 RoboGlove_x_Chicken.png" alt="Prototyping 3" class="w-full shrink-0 h-auto object-contain object-center">
+
+                <img src="4 Immersive_Glove .jpg" alt="Prototyping 4" class="w-full shrink-0 h-auto object-contain object-center">
+
+                <img src="5 Haptic_Feelback.jpg" alt="Prototyping 5" class="w-full shrink-0 h-auto object-contain object-center">
+
+                <img src="6 Your_hands.Your_arms.jpg" alt="Prototyping 6" class="w-full shrink-0 h-auto object-contain object-center">
+                
+                </div>
+        </div>
+        
+        <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#111111]/80 hover:bg-white hover:text-black border border-[#222] text-white p-4 rounded-full z-10 transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let slides = Array.from(track.children);
+        
+        // 1. Создаем клоны первого и последнего слайдов
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+        
+        // 2. Добавляем клоны в начало и в конец ленты
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, slides[0]);
+        
+        // Обновляем список слайдов (теперь их на 2 больше)
+        slides = Array.from(track.children);
+        
+        let currentIndex = 1; // Начинаем с 1, так как 0 — это клон последней картинки
+        let isTransitioning = false; // Блокировка от слишком быстрых кликов
+
+        // Устанавливаем начальную позицию (сразу сдвигаем на 1 слайд, чтобы скрыть клон)
+        track.style.transform = `translateX(-100%)`;
+
+        // Функция движения ленты
+        function updateCarousel(instant = false) {
+            if (instant) {
+                // Мгновенный прыжок (без анимации)
+                track.style.transition = 'none'; 
+            } else {
+                // Плавное движение
+                track.style.transition = 'transform 0.5s ease-in-out';
+            }
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Клик ВПРАВО
+        nextBtn.addEventListener('click', () => {
+            if (isTransitioning) return; // Игнорируем клик, если анимация еще идет
+            isTransitioning = true;
+            currentIndex++;
+            updateCarousel();
+        });
+
+        // Клик ВЛЕВО
+        prevBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex--;
+            updateCarousel();
+        });
+
+        // Магия бесконечности: когда анимация заканчивается
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false; // Снимаем блокировку кликов
+            
+            // Если мы докрутили до клона первой картинки (в самом конце ленты)
+            if (currentIndex === slides.length - 1) {
+                currentIndex = 1; // Прыгаем на реальную первую картинку
+                updateCarousel(true); // Мгновенно и незаметно!
+            }
+            
+            // Если мы докрутили до клона последней картинки (в самом начале ленты)
+            if (currentIndex === 0) {
+                currentIndex = slides.length - 2; // Прыгаем на реальную последнюю
+                updateCarousel(true); // Мгновенно!
+            }
+        });
+    });
+</script>
+
+    <footer id="contact" class="px-8 md:px-16 pt-24 pb-12 bg-black border-t border-[#111]">
+        
+        <div class="flex items-center mb-24">
+    <div class="relative flex items-center h-[40px]">
+        
+        <div class="relative z-20 bg-[#141414] text-white pl-6 pr-3 h-full rounded-l-full font-medium flex items-center justify-center text-sm md:text-base border-y border-l border-[#222]">
+            Contact Us:
+        </div>
+        
+        <div class="absolute right-[-19px] top-0 w-[40px] h-[40px] flex items-center justify-center z-10">
+            <div class="w-[29px] h-[29px] bg-[#141414] border-t border-r border-[#222] rotate-45 rounded-tr-[6px]"></div>
+        </div>
+        
+    </div>
+
+    <a href="mailto:felyalabs@gmail.com" class="text-white text-base md:text-xl ml-10 font-medium hover:text-gray-400 transition-colors">
+        info@felyalabs.com
+    </a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-end">
+            <div class="flex flex-col justify-end space-y-6">
+                <div class="flex gap-5 text-gray-500">
+                    <a href="https://linkedin.com/company/felya-labs" target="_blank" class="hover:text-white transition-colors">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    
+                    <a href="https://instagram.com/felya_labs/" target="_blank" class="hover:text-white transition-colors">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    
+                    <a href="#" target="_blank" class="hover:text-white transition-colors">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    
+                    <a href="https://youtube.com/watch?v=230vny1l3fE" target="_blank" class="hover:text-white transition-colors">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    </a>
+                </div>
+                <p class="text-gray-600 text-sm">© FELYA LABS 2026.</p>
+            </div>
+            
+            <div class="text-left md:text-center flex flex-col md:items-center">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Shape the future</h2>
+                 <h2 class="text-3xl md:text-4xl font-bold text-[#444444] tracking-tight">with FELYA LABS.</h2>
+            </div>
+            
+            <div class="flex flex-col gap-3 text-gray-500 md:text-right text-sm font-medium">
+                <a href="terms.txt" target="_blank" class="hover:text-white transition-colors">Terms & Conditions</a>
+                <a href="privacy.txt" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="impressum.txt" target="_blank" class="hover:text-white transition-colors">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
