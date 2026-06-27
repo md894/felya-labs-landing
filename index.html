@@ -88,16 +88,35 @@
                 <h1 class="text-[3.2rem] md:text-[3rem] leading-none font-bold tracking-tight text-[#444444]">Sign up now.</h1>
                 </div>
 
-                <form action="https://seu2.cleverreach.com/f/452581-429094/wcs/" method="POST" class="flex flex-col gap-3 max-w-[350px] pt-4">
-                    <input type="email" name="email" required placeholder="Email" class="bg-[#141414] text-white px-5 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder-gray-600 border border-[#222]">
-                    <button type="submit" class="bg-white text-black font-semibold text-lg px-5 py-4 rounded-xl hover:bg-gray-200 transition-colors">Sign Up</button>
+                <form action="https://submit-form.com/5I3xX6ZMl" method="POST" target="hidden_iframe" onsubmit="showSuccessMessage();" class="flex flex-col gap-3 max-w-[350px] pt-4">
+                <input type="email" name="email" required placeholder="Email" class="bg-[#141414] text-white px-5 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-gray-500 placeholder-gray-600 border border-[#222]">
+        
+                <button type="submit" class="bg-white text-black font-semibold text-lg px-5 py-4 rounded-xl hover:bg-gray-200 transition-colors">Sign Up</button>
+        
+                <p id="form-success" class="text-sm mt-1 text-green-400 hidden">Connection established. You’re on the list!.</p>
                 </form>
+            </div>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+        <script>
+        function showSuccessMessage() {
+            // Показываем красивый зеленый текст успеха на твоем сайте
+            document.getElementById('form-success').classList.remove('hidden');
+            
+            // Мягко очищаем поле ввода от текста
+            setTimeout(() => {
+                document.querySelector('input[name="email"]').value = '';
+            }, 100);
+        }
+        </script>
+
             </div>
         </div>
         
         <div class="w-full md:w-[60%] h-[50vh] md:h-screen relative mt-8 md:mt-0 flex items-center justify-center">
-            <img src="Felya Glove.png" alt="Robotic Hand Exoskeleton" 
-             class="h-full w-auto object-contain rotate-[-25deg] scale-125 -translate-y-[140px]">
+            <img src="affinity_Felya.jpg" alt="Robotic Hand Exoskeleton" 
+             class="h-full w-auto object-contain rotate-[-1deg] scale-120 -translate-y-[140px]">
         </div>
     </section>
 
@@ -183,6 +202,17 @@
                 <img src="5 Haptic_Feelback.jpg" alt="Prototyping 5" class="w-full shrink-0 h-auto object-contain object-center">
 
                 <img src="6 Your_hands.Your_arms.jpg" alt="Prototyping 6" class="w-full shrink-0 h-auto object-contain object-center">
+
+                <div class="w-full shrink-0 aspect-video max-h-[600px] flex items-center justify-center">
+                    <iframe 
+                        class="w-full h-full rounded-xl"
+                        src="https://www.youtube.com/embed/230vny1l3fE" 
+                        title="FELYA LABS Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
                 
                 </div>
         </div>
