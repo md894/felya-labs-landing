@@ -15,7 +15,7 @@
             font-display: swap;
         }
         
-        /* Подключаем начертание SemiBold (Полужирный) */
+        
         @font-face {
             font-family: 'Eina';
             src: url('https://framerusercontent.com/assets/m2sOnRhxGd7N1y798WSAynSxg.woff2') format('woff2');
@@ -24,7 +24,7 @@
             font-display: swap;
         }
         
-        /* Подключаем начертание Bold (Жирный) */
+        
         @font-face {
             font-family: 'Eina';
             src: url('https://framerusercontent.com/assets/aEZpo7WWxzF2oEf6lxnwVQ1g.woff2') format('woff2');
@@ -34,13 +34,13 @@
         }
 
         body {
-            /* Применяем шрифт Eina ко всему сайту */
+            /* Eina Schriftart auf der ganzen Website */
             font-family: 'Eina', sans-serif;
             background-color: #000000;
             color: #ffffff;
         }
 
-        /* Стили для бесконечной анимации логотипов */
+        /* Logo-Animation (endlos) */
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -75,10 +75,10 @@
         </nav>
     </header>
 
-    <!-- 2. СЕКЦИЯ: pt-[220px] вместо pt-32 опускает весь контент ниже, чтобы дать место гигантскому логотипу -->
+    <!-- SECTION 2: pt-[220px] statt pt-32 – schafft Platz für das große Logo -->
     <section class="relative flex flex-col md:flex-row min-h-screen px-8 md:px-16 pt-[220px] pb-20 items-center justify-between">
         
-        <!-- 3. ЛЕВАЯ КОЛОНКА: добавлен класс md:ml-12 (margin-left), чтобы сдвинуть текст правее, под букву L -->
+        <!-- LEFT COLUMN: md:ml-12 verschiebt Text nach rechts (unter L) -->
         <div class="w-full md:w-[39%] z-10 flex flex-col justify-center h-full py-10 space-y-16 mt-10 md:mt-0 md:ml-12 -translate-y-[120px]">
             
             <div class="space-y-6 max-w-full">
@@ -107,10 +107,10 @@
 
         <script>
         function showSuccessMessage() {
-            // Показываем красивый зеленый текст успеха на твоем сайте
+            // Success-Text (green)
             document.getElementById('form-success').classList.remove('hidden');
             
-            // Мягко очищаем поле ввода от текста
+            // Input leeren
             setTimeout(() => {
                 document.querySelector('input[name="email"]').value = '';
             }, 100);
@@ -239,44 +239,44 @@
         
         let slides = Array.from(track.children);
         
-        // 1. Создаем клоны первого и последнего слайдов
+        // 1. Erste und letzte Slides klonen
         const firstClone = slides[0].cloneNode(true);
         const lastClone = slides[slides.length - 1].cloneNode(true);
         
-        // 2. Добавляем клоны в начало и в конец ленты
+        // 2. Klone einfügen (start/end)
         track.appendChild(firstClone);
         track.insertBefore(lastClone, slides[0]);
         
-        // Обновляем список слайдов (теперь их на 2 больше)
+        // Slides aktualisieren (+2)
         slides = Array.from(track.children);
         
-        let currentIndex = 1; // Начинаем с 1, так как 0 — это клон последней картинки
-        let isTransitioning = false; // Блокировка от слишком быстрых кликов
+        let currentIndex = 1; // Start bei 1, da 0 der letzte Clone ist
+        let isTransitioning = false; // Schutz vor zu schnellen Klicks
 
-        // Устанавливаем начальную позицию (сразу сдвигаем на 1 слайд, чтобы скрыть клон)
+        // Startposition setzen (1 Slide nach vorne wegen Clone)
         track.style.transform = `translateX(-100%)`;
 
-        // Функция движения ленты
+        // Slide-Animation
         function updateCarousel(instant = false) {
             if (instant) {
-                // Мгновенный прыжок (без анимации)
+                // Jump ohne Animation
                 track.style.transition = 'none'; 
             } else {
-                // Плавное движение
+                // smooth move
                 track.style.transition = 'transform 0.5s ease-in-out';
             }
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
-        // Клик ВПРАВО
+        // rechtsklick
         nextBtn.addEventListener('click', () => {
-            if (isTransitioning) return; // Игнорируем клик, если анимация еще идет
+            if (isTransitioning) return; // ignore click (animating)
             isTransitioning = true;
             currentIndex++;
             updateCarousel();
         });
 
-        // Клик ВЛЕВО
+        // linksklick
         prevBtn.addEventListener('click', () => {
             if (isTransitioning) return;
             isTransitioning = true;
@@ -284,20 +284,20 @@
             updateCarousel();
         });
 
-        // Магия бесконечности: когда анимация заканчивается
+        // loop reset (infinite)
         track.addEventListener('transitionend', () => {
-            isTransitioning = false; // Снимаем блокировку кликов
+            isTransitioning = false; // unlock clicks
             
-            // Если мы докрутили до клона первой картинки (в самом конце ленты)
+            // end clone (first slide)
             if (currentIndex === slides.length - 1) {
-                currentIndex = 1; // Прыгаем на реальную первую картинку
-                updateCarousel(true); // Мгновенно и незаметно!
+                currentIndex = 1; // go to first slide (no clone)
+                updateCarousel(true);
             }
             
-            // Если мы докрутили до клона последней картинки (в самом начале ленты)
+            // start clone (last slide)
             if (currentIndex === 0) {
-                currentIndex = slides.length - 2; // Прыгаем на реальную последнюю
-                updateCarousel(true); // Мгновенно!
+                currentIndex = slides.length - 2; // go to last slide (no clone)
+                updateCarousel(true);
             }
         });
     });
